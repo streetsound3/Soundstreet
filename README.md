@@ -39,3 +39,7 @@ Until those are filled in, the forms check the email address and then tell visit
 ## If the domain changes
 
 `sitemap.xml`, `robots.txt` and each page's canonical and preview-image tags use the site address. The site is currently set to `https://soundstreet.mlawton2.workers.dev`. When you connect a real domain, the files get regenerated with the new address.
+
+## How updates happen
+
+Claude publishes new notes, team changes and fixes by committing straight to `main`; Cloudflare redeploys in about a minute. `assets/config.js` is edited by hand in GitHub, so builds never overwrite it.
