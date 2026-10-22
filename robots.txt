@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soundstreet.mlawton2.workers.dev/sitemap.xml
