@@ -1,4 +1,5 @@
-   .git
-   .assetsignore
-   wrangler.jsonc
-   README.md
+.git
+.wrangler
+.assetsignore
+wrangler.jsonc
+README.md
