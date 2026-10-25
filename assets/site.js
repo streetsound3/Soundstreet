@@ -61,9 +61,23 @@
         var f = { email: email.value.trim() };
         opts.extra.forEach(function (id) { var el = document.getElementById(id); if (el) f[id.replace(/^(sample|adv)-/, '')] = el.value.trim(); });
         var body = 'Hi Sound Street,\n\nPlease send me the advisor edition.\n\nName: ' + (f.name || '') + '\nFirm: ' + (f.firm || '') + '\nWork email: ' + f.email + '\n';
-        location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Advisor sample request') + '&body=' + encodeURIComponent(body);
+        var subj = 'Advisor sample request';
+        var mailto = 'mailto:' + to + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+        var gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + '&su=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+        var outlook = 'https://outlook.office.com/mail/deeplink/compose?to=' + encodeURIComponent(to) + '&subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
         var doneEl = document.getElementById(opts.doneId);
-        doneEl.textContent = 'Your email app should open with the request ready. Press Send and we\u2019ll reply with the advisor edition. Nothing opened? Email us at ' + to + '.';
+        doneEl.textContent = '';
+        doneEl.appendChild(document.createTextNode('Almost done: send the request from your email. '));
+        var links = [['Gmail', gmail], ['Outlook', outlook], ['Your email app', mailto]];
+        links.forEach(function (l, i) {
+          var a = document.createElement('a');
+          a.href = l[1]; a.textContent = l[0];
+          if (l[1].indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+          a.style.color = 'inherit'; a.style.fontWeight = '600';
+          doneEl.appendChild(a);
+          doneEl.appendChild(document.createTextNode(i < links.length - 1 ? ' \u00b7 ' : ''));
+        });
+        doneEl.appendChild(document.createTextNode('. The message is already written; just press Send. Or email ' + to + ' directly.'));
         opts.onSent();
         focus(opts.doneId);
         return;
