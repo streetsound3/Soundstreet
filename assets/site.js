@@ -15,6 +15,12 @@
   }
   function say(statusEl, text, color) { if (statusEl) { statusEl.textContent = text; if (color) statusEl.style.color = color; } }
 
+  // Address is stored in two parts so simple scrapers don't pick it up.
+  function sampleInbox() {
+    var p = CFG.sampleEmail;
+    return (p && p.length === 2 && p[0] && p[1]) ? p[0] + '@' + p[1] : '';
+  }
+
   function sendSample(fields) {
     if (!CFG.sampleEndpoint) return Promise.reject(new Error('not-configured'));
     var data = new FormData();
@@ -50,6 +56,18 @@
         return;
       }
       email.setAttribute('aria-invalid', 'false');
+      var to = sampleInbox();
+      if (!CFG.sampleEndpoint && to) {
+        var f = { email: email.value.trim() };
+        opts.extra.forEach(function (id) { var el = document.getElementById(id); if (el) f[id.replace(/^(sample|adv)-/, '')] = el.value.trim(); });
+        var body = 'Hi Sound Street,\n\nPlease send me the advisor edition.\n\nName: ' + (f.name || '') + '\nFirm: ' + (f.firm || '') + '\nWork email: ' + f.email + '\n';
+        location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Advisor sample request') + '&body=' + encodeURIComponent(body);
+        var doneEl = document.getElementById(opts.doneId);
+        doneEl.textContent = 'Your email app should open with the request ready. Press Send and we\u2019ll reply with the advisor edition. Nothing opened? Email us at ' + to + '.';
+        opts.onSent();
+        focus(opts.doneId);
+        return;
+      }
       if (!CFG.sampleEndpoint) { say(status, 'Sample requests open soon. Check back in a few days.', errColor); return; }
       busy = true;
       say(status, 'Sending…', opts.okColor);

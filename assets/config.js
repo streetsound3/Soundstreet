@@ -7,9 +7,14 @@
   sampleEndpoint  Your Formspree form endpoint, e.g. "https://formspree.io/f/abcdwxyz".
                   The "Send me the sample" forms post to it, and Formspree emails you.
 
+  sampleEmail     Where advisor sample requests go when there's no Formspree endpoint,
+                  split in two to keep it away from spam bots: ["yourname", "gmail.com"].
+                  The form opens the advisor's email app with the request written out.
+
   Leave a value empty ("") and that form tells visitors it isn't open yet.
 */
 window.SOUND_STREET = {
   substackUrl: "https://soundstreetresearch.substack.com",
-  sampleEndpoint: ""
+  sampleEndpoint: "",
+  sampleEmail: ["", ""]
 };
