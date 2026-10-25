@@ -16,5 +16,5 @@
 window.SOUND_STREET = {
   substackUrl: "https://soundstreetresearch.substack.com",
   sampleEndpoint: "",
-  sampleEmail: ["", ""]
+  sampleEmail: ["soundstreetresearch", "gmail.com"]
 };
