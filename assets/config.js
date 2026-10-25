@@ -10,6 +10,6 @@
   Leave a value empty ("") and that form tells visitors it isn't open yet.
 */
 window.SOUND_STREET = {
-  substackUrl: "https://substack.com/@soundstreetresearch",
+  substackUrl: "https://soundstreetresearch.substack.com",
   sampleEndpoint: ""
 };
