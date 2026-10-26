@@ -25,7 +25,7 @@ The public site for Sound Street Research. It's plain HTML, CSS and a little Jav
 
 ## Deploy on Cloudflare
 
-The site runs on Cloudflare Workers (static assets). `wrangler.jsonc` holds the settings, including the custom 404 page. Every commit to `main` redeploys automatically in about a minute. Live at https://soundstreet.mlawton2.workers.dev until the custom domain is connected.
+The site runs on Cloudflare Workers (static assets). `wrangler.jsonc` holds the settings, including the custom 404 page. Every commit to `main` redeploys automatically in about a minute. Live at https://soundstreetresearch.com until the custom domain is connected.
 
 ## Turn the forms on
 
@@ -38,7 +38,7 @@ Until those are filled in, the forms check the email address and then tell visit
 
 ## If the domain changes
 
-`sitemap.xml`, `robots.txt` and each page's canonical and preview-image tags use the site address. The site is currently set to `https://soundstreet.mlawton2.workers.dev`. When you connect a real domain, the files get regenerated with the new address.
+`sitemap.xml`, `robots.txt` and each page's canonical and preview-image tags use the site address. The site is currently set to `https://soundstreetresearch.com`. When you connect a real domain, the files get regenerated with the new address.
 
 ## How updates happen
 
