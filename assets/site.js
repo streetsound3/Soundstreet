@@ -171,6 +171,10 @@
       show('isEmpty', n === 0);
     };
     themeBtns.forEach(function (b) { b.addEventListener('click', function () { pick(b.getAttribute('data-theme')); }); });
+    try {
+      var want = new URLSearchParams(location.search).get('theme');
+      if (want && themeBtns.some(function (b) { return b.getAttribute('data-theme') === want; })) pick(want);
+    } catch (e) {}
     $all('[data-on="showAll"], [data-show-all]').forEach(function (b) { b.addEventListener('click', function () { pick('All'); }); });
   }
 
