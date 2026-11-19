@@ -155,15 +155,15 @@ p,li{text-wrap:pretty}
       "title": "S&P 500"
     },
     {
-      "proName": "TVC:US02Y",
+      "proName": "FRED:DGS2",
       "title": "US 2Y yield"
     },
     {
-      "proName": "TVC:US10Y",
+      "proName": "FRED:DGS10",
       "title": "US 10Y yield"
     },
     {
-      "proName": "TVC:DXY",
+      "proName": "CAPITALCOM:DXY",
       "title": "Dollar index"
     },
     {
@@ -207,7 +207,7 @@ p,li{text-wrap:pretty}
 
     <section class="mk-block" aria-labelledby="lanes-h">
       <h2 id="lanes-h">Our four lanes</h2>
-      <p>Pick a lane to see its markets over the last three months. Yields are in percent; currency pairs show how many units of the second currency one unit of the first buys, so a falling USD/JPY means a stronger yen.</p>
+      <p>Pick a lane to see its markets over the last three months. US rates come from the Federal Reserve's data and update once a day. Yields are in percent; currency pairs show how many units of the second currency one unit of the first buys, so a falling USD/JPY means a stronger yen.</p>
       <div class="mk-frame" style="--h:600px">
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
@@ -236,34 +236,19 @@ p,li{text-wrap:pretty}
   "tabs": [
     {
       "title": "Central banks",
+          "symbols": [
+            {"s": "FRED:DFF", "d": "Fed funds rate (effective)"},
+            {"s": "FRED:DGS2", "d": "US 2-year Treasury yield"},
+            {"s": "FRED:DGS10", "d": "US 10-year Treasury yield"},
+            {"s": "FRED:T10Y2Y", "d": "10-year minus 2-year (yield curve)"},
+            {"s": "NASDAQ:TLT", "d": "Long Treasury bonds (TLT fund)"}
+          ]
+        },
+        {
+          "title": "Currencies",
       "symbols": [
         {
-          "s": "TVC:US02Y",
-          "d": "US 2-year Treasury yield"
-        },
-        {
-          "s": "TVC:US10Y",
-          "d": "US 10-year Treasury yield"
-        },
-        {
-          "s": "TVC:JP10Y",
-          "d": "Japan 10-year yield"
-        },
-        {
-          "s": "TVC:DE10Y",
-          "d": "Germany 10-year yield"
-        },
-        {
-          "s": "TVC:GB10Y",
-          "d": "UK 10-year yield"
-        }
-      ]
-    },
-    {
-      "title": "Currencies",
-      "symbols": [
-        {
-          "s": "TVC:DXY",
+          "s": "CAPITALCOM:DXY",
           "d": "US dollar index"
         },
         {
